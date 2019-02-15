@@ -11,6 +11,14 @@ router.get('/', async (req, res) => {
 });
 
 /* ===== ADD POSTS ===== */
+router.post('/', async (req, res) => {
+  const posts = await loadPostsCollection();
+  await posts.insertOne({
+    text: req.body.text,
+    created_at: new Date()
+  });
+  res.status(201).send();
+});
 
 /* ===== DELETE POSTS ===== */
 
