@@ -1,4 +1,23 @@
-<template></template>
+<template>
+  <div class="container">
+    <h1>Latest Posts</h1>
+    <!-- create post here -->
+    <hr>
+    <p class="error" v-if="error">{{ error }}</p>
+    <div class="posts-container">
+      <div
+        class="post"
+        v-for="(post, index) in posts"
+        v-bind:item="post"
+        v-bind:index="index"
+        v-bind:key="post._id"
+      >
+        {{ `${post.created_at.getDate()}/${post.created_at.getMonth()}/${post.created_at.getFullYear()}` }}
+        <p class="text">{{ post.text}}</p>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script>
 import PostService from "../PostService";
