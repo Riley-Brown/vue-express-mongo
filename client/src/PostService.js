@@ -33,3 +33,5 @@ class PostService {
     return axios.delete(`${url}${id}`);
   }
 }
+
+export default PostService;
