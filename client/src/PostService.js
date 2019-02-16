@@ -12,7 +12,7 @@ class PostService {
         resolve(
           data.map(post => ({
             ...post,
-            createdAt: new Date(post.createdAt)
+            created_at: new Date(post.created_at)
           }))
         );
       } catch (err) {
